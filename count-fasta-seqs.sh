@@ -63,7 +63,7 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-echo "$@"
+#echo "$@"
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -93,4 +93,21 @@ echo "$@"
 # Good luck!
 #
 # ADD YOUR CODE BELOW:
+#for filepath in "$@"
+#do
+#    gekkocount=$(grep -c "Gekko" gekko-mindorensis.fasta)
+#    gekkoname=$(basename gekko-mindorensis.fasta)
+#    echo "$gekkocount" "$gekkoname"
+#    echo "$gekkocount"
+#done
 
+for filepath in "$@"
+do
+	seq_number=`grep ">" $filepath | wc -l`
+	seq_name=`basename $filepath`
+
+	printf "$seq_number $seq_name\n"
+done
+
+	seq_total=`grep ">" $@ | wc -l`
+	echo $seq_total
