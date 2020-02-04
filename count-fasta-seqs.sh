@@ -94,8 +94,8 @@
 # ADD YOUR CODE BELOW:
 for filepath in "$@"
 do
-    filename=$(basename *.fasta)
-    number=$(grep -c ">" *.fasta)
+    filename="$(basename *.fasta)"
+    number="$(grep -c ">" *.fasta)"
     echo "$number $filename"
     echo "$number"
 done
