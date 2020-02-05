@@ -63,7 +63,11 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
+<<<<<<< HEAD
 ## echo "$@"
+=======
+#echo "$@"
+>>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -92,12 +96,16 @@
 # Good luck!
 #
 # ADD YOUR CODE BELOW:
+
+>>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
+
 for filepath in "$@"
 do
-    filename="$(basename *.fasta)"
-    number="$(grep -c ">" *.fasta)"
-    echo "$number $filename"
-    echo "$number"
+	seq_number=`grep ">" $filepath | wc -l`
+	seq_name=`basename $filepath`
+
+	printf "$seq_number $seq_name\n"
 done
 
-
+	seq_total=`grep ">" $@ | wc -l`
+	echo $seq_total
