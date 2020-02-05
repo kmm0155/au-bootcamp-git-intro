@@ -63,11 +63,11 @@
 # files that were 'given to' this script. The variable "$@" will be very useful
 # for this. Let's take a look at what it gives us:
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 ## echo "$@"
-=======
+#=======
 #echo "$@"
->>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
+#>>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
 
 # How are you going to work with each file path?
 # HINT: for loop (remember "for do done"?)
@@ -97,10 +97,17 @@
 #
 # ADD YOUR CODE BELOW:
 
->>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
-
+#>>>>>>> 8d2a30040cc4baf23b203daeafa031e0de2fd2d5
+##accounting for all filepaths in $@; in this case, all within the tests directory
 for filepath in "$@"
+##need to make a loop that will go through every file from every path
+##each test is one script, and each script goes through one directory
+##this loop will start with one script, go through all files in that directory specified by the script with the commands in this loop, then move on to the next script
+##the loop ends when all files in the filepath specified by the test scripts have been dealt with; loop starts again when the next script is initiated
 do
+##filepath is a variable as specified by the for filepath in statement
+##grep ">" will search for every hit located in each file
+##wc -l will specify the number of lines (number of hits provided by grep)
 	seq_number=`grep ">" $filepath | wc -l`
 	seq_name=`basename $filepath`
 
