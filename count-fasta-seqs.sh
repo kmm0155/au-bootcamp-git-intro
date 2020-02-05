@@ -109,10 +109,13 @@ do
 ##grep ">" will search for every hit located in each file
 ##wc -l will specify the number of lines (number of hits provided by grep)
 	seq_number=`grep ">" $filepath | wc -l`
+##basename will only print the name of the file, not the path
 	seq_name=`basename $filepath`
-
+##asking the machine to print the number and the name in that order for the output
 	printf "$seq_number $seq_name\n"
+##ending the loop
 done
-
+##getting the total number of hits/sequences for all the files
 	seq_total=`grep ">" $@ | wc -l`
+##asking the machine to just show the number in the output
 	echo $seq_total
